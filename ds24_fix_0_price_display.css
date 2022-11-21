@@ -1,0 +1,40 @@
+/* change price display for the book product */
+    
+    /* hide "je 14,99 €" below checkbox */
+    [data-e2e="order:productlist:item:303504"] [data-e2e="order:productlist:item:quantity_select"] + div.small.mt-1{
+        display:none;
+    }
+    
+    /* hide 0 € price*/
+    [data-e2e="order:productlist:item:303504"] .col-price orderform-product-price span.first{
+        display:none
+
+    }
+    
+    /* add new price */
+    [data-e2e="order:productlist:item:303504"] .col-price orderform-product-price::after {
+
+        content: '14,99 €';
+        display: block;
+        width: 6ch;
+        height: 1em;
+
+    }
+    
+/* move checkbox on mobile */
+    /* set parent as relative*/
+    [data-e2e="order:productlist:item:303504"] .col-details{
+        position: relative;
+    }
+
+    /*position checkbox absolute*/
+    [data-e2e="order:productlist:item:303504"] .display-on-small [data-e2e="order:productlist:item:quantity_select"]{
+        position: absolute;
+        right:0;
+        top: 15px;   
+    }
+    
+    /* account for checkbox in product title */
+    [data-e2e="order:productlist:item:303504"] .col-details h3.product-headline{
+        margin-right: 2em
+    }
